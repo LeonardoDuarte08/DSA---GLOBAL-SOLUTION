@@ -1,4 +1,4 @@
-# Global Solution - Monitoramento de Missão Espacial
+# Global Solution - DSA
 
 ## Sobre a Atividade
 
