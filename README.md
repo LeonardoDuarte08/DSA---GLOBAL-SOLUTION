@@ -61,6 +61,12 @@ Também adicionamos uma função de histórico de leituras, permitindo visualiza
 
 ---
 
+## Fluxograma
+
+No repositório tem um arquivo JPG com o fluxograma desenhado para a GS. Caso a visualização enteja ruim, segue link também para acesso direto ao Miro, onde foi realizado a atividade: [Miro - Fluxograma da Global Solution](https://miro.com/app/board/uXjVHM27hqY=/?share_link_id=584134308165)
+
+---
+
 ## Demonstração
 
-Coloacamos um vídeo no repositório com a simulação do programa. Além disso, também incluímos o fluxograma desenhado para a GS.
+Coloacamos um vídeo no repositório com a simulação do programa.
