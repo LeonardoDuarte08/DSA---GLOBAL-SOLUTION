@@ -1,5 +1,13 @@
 # Global Solution - DSA
 
+---
+## Integrantes
+
+- Leonardo Gabriel Sá Duarte - RM 569029
+- Enzo Vieira de Nadai - RM 569985
+
+---
+
 ## Sobre a Atividade
 
 Esta atividade foi desenvolvida para a Global Solution da disciplina de DSA, com o objetivo de simular o monitoramento básico de uma missão espacial.
@@ -56,10 +64,3 @@ Também adicionamos uma função de histórico de leituras, permitindo visualiza
 ## Demonstração
 
 Coloacamos um vídeo no repositório com a simulação do programa. Além disso, também incluímos o fluxograma desenhado para a GS.
-
----
-
-## 👨‍💻 Integrantes
-
-- Leonardo Gabriel Sá Duarte - RM 569029
-- Enzo Vieira de Nadai - RM 569985
