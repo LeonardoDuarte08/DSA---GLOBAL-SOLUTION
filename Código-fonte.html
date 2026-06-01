@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoramento Espacial</title>
+</head>
+
+<style>
+
+    body{
+        font-family: Arial;
+        margin: 30px;
+    }
+
+    input, button{
+        margin: 5px;
+        padding: 8px;
+    }
+
+    input{
+        width: 220px;
+    }
+
+    #saida{
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #ccc;
+    }
+
+</style>
+
+<body>
+
+<h1>Monitoramento de Missão Espacial</h1>
+
+<input type="number" id="temperatura" placeholder="Temperatura">
+
+<input type="number" id="energia" placeholder="Energia (%)">
+
+<input type="number" id="comunicacao" placeholder="Comunicação (1 ou 0)">
+
+<br>
+
+<button onclick="inserirDados()">Inserir dados</button>
+
+<button onclick="visualizarStatus()">Visualizar status</button>
+
+<button onclick="executarAnalise()">Executar análise</button>
+
+<button onclick="mostrarHistorico()">Histórico</button>
+
+<div id="saida"></div>
+
+<script>
+
+    let historico = [];
+
+    function inserirDados(){
+
+        let temperatura = document.getElementById("temperatura").value;
+
+        let energia = document.getElementById("energia").value;
+
+        let comunicacao = document.getElementById("comunicacao").value;
+
+        if(temperatura === "" || energia === "" || comunicacao === ""){
+
+            alert("Preencha todos os campos");
+
+            return;
+        }
+
+        let leitura = {
+
+            temperatura: temperatura,
+
+            energia: energia,
+
+            comunicacao: comunicacao
+        };
+
+        historico.push(leitura);
+
+        document.getElementById("saida").innerHTML = `Dados cadastrados com sucesso!`;
+
+        document.getElementById("temperatura").value = "";
+
+        document.getElementById("energia").value = "";
+
+        document.getElementById("comunicacao").value = "";
+    }
+
+    function visualizarStatus(){
+
+        if(historico.length === 0){
+
+            document.getElementById("saida").innerHTML = `
+
+                Nenhum dado cadastrado
+
+            `;
+
+            return;
+        }
+
+        let ultima = historico[historico.length - 1];
+
+        let status = "";
+
+        if(ultima.comunicacao == 1){
+
+            status = "Funcionando";
+
+        }else{
+
+            status = "Falha";
+        }
+
+        document.getElementById("saida").innerHTML = `
+
+            <h3>Status Atual</h3>
+
+            Temperatura: ${ultima.temperatura}°C <br>
+
+            Energia: ${ultima.energia}% <br>
+
+            Comunicação: ${status}
+
+        `;
+    }
+
+    function executarAnalise(){
+
+        if(historico.length === 0){
+
+            document.getElementById("saida").innerHTML = `
+
+                Nenhum dado para análise
+
+            `;
+
+            return;
+        }
+
+        let ultima = historico[historico.length - 1];
+
+        let resultado = `
+
+            <h3>Análise da Missão</h3>
+
+        `;
+
+        if(ultima.temperatura > 80){
+
+            resultado += `
+
+                Alerta de superaquecimento <br>
+
+            `;
+        }
+
+        if(ultima.energia < 20){
+
+            resultado += `
+
+                Economia de energia ativada <br>
+
+            `;
+        }
+
+        if(ultima.comunicacao == 0){
+
+            resultado += `
+
+                Falha de comunicação <br>
+
+            `;
+        }
+
+        if(
+            ultima.temperatura <= 80 &&
+            ultima.energia >= 20 &&
+            ultima.comunicacao == 1
+        ){
+
+            resultado += `
+
+                Missão funcionando normalmente
+
+            `;
+        }
+
+        document.getElementById("saida").innerHTML = resultado;
+    }
+
+    function mostrarHistorico(){
+
+        if(historico.length === 0){
+
+            document.getElementById("saida").innerHTML = `
+
+                Nenhum histórico disponível
+
+            `;
+
+            return;
+        }
+
+        let resultado = `
+
+            <h3>Histórico de Leituras</h3>
+
+        `;
+
+        for(let i = 0; i < historico.length; i++){
+
+            resultado += `
+
+                <strong>Leitura ${i + 1}</strong> <br>
+
+                Temperatura: ${historico[i].temperatura}°C <br>
+
+                Energia: ${historico[i].energia}% <br>
+
+                Comunicação: ${historico[i].comunicacao == 1 ? "Funcionando" : "Falha"} <br><br>
+
+            `;
+        }
+
+        document.getElementById("saida").innerHTML = resultado;
+    }
+
+</script>
+
+</body>
+</html>
