@@ -39,15 +39,15 @@ Iniciamos o funcionamento do sistema permitindo que o usuário informe os valore
 
 Após essa validação, armazenamos os dados em um histórico de leituras. Dessa forma, conseguimos manter todas as informações cadastradas anteriormente para futuras consultas.
 
-Também criamos uma função de visualização de status, responsável por exibir os dados da última leitura cadastrada. Nessa etapa, realizamos uma verificação da comunicação da nave para informar se ela está funcionando normalmente ou se existe alguma falha.
+Também criamos uma função de visualização de status, que serve para exibir os dados da última leitura cadastrada. Nessa etapa, realizamos uma verificação da comunicação da nave para informar se ela está funcionando normalmente ou se tem alguma coisa errada.
 
-Na parte de análise, utilizamos estruturas condicionais para verificar possíveis situações de risco na missão. As verificações realizadas foram:
+Na análise de funcionamento da "nave", usamos os parâmetros abaixo para identificar algo de errado no sistema, que impacta na missão:
 
 - Temperatura acima de 80;
 - Energia abaixo de 20;
 - Comunicação igual a 0.
 
-Quando alguma dessas condições é atendida, exibimos os alertas correspondentes para o usuário. Caso nenhuma situação de risco seja encontrada, o sistema informa que a missão está funcionando normalmente.
+Quando algum desses parâmetros é acionado, exibimos os alertas correspondentes para o usuário. Caso nenhuma "situação de risco" seja encontrada, o sistema informa que a missão está funcionando normalmente.
 
 Também adicionamos uma função de histórico de leituras, permitindo visualizar todas as informações cadastradas anteriormente. Para isso, utilizamos uma estrutura de repetição para percorrer todos os dados armazenados e exibi-los na tela.
 
